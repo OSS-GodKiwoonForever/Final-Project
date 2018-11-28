@@ -8,23 +8,6 @@ from linebot.exceptions import (
 )
 from linebot.models import *
 
-from urllib.request import Request, urlopen
-from urllib.parse import urlencode, quote_plus,unquote
-import xml.etree.ElementTree as ET
-
-API_key = unquote('R1V4MPrTQswXXkm8ChQgr%2BGl%2F%2F1SaMuMBpFpDZpflAftaVSnjVK%2F8ye6OZtNsdsyFbvfEsWfPdJAWX2soyzLeg%3D%3D')
-url = 'http://openapi.airkorea.or.kr/openapi/services/rest/ArpltnInforInqireSvc/getCtprvnMesureLIst'
-queryParams = '?' + urlencode({ quote_plus('ServiceKey') : API_key, quote_plus('numOfRows') : '10', quote_plus('pageNo') : '1', quote_plus('itemCode') : 'PM10', quote_plus('dataGubun') : 'HOUR', quote_plus('searchCondition') : 'MONTH' })
-
-request = Request(url + queryParams)
-request.get_method = lambda: 'GET'
-response_body = urlopen(request).read().decode('utf-8')
-root = ET.fromstring(response_body)
-
-seoul = root.find('body').find('items').find('item').find('seoul')
-gyeonggi = root.find('body').find('items').find('item').find('gyeonggi')
-
-
 app = Flask(__name__)
 
 # Channel Access Token
