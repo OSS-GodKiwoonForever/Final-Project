@@ -48,7 +48,7 @@ def handle_message(event):
     root = ET.fromstring(response_body)
 
     def city_parsing(city):
-        city = root.find('body').find('items').find('item').find('city')
+        city = root.find('body').find('items').find('item').find(city)
 
     # message = TextSendMessage(text=event.message.text)
     message = TextSendMessage(text=city_parsing(seoul))
