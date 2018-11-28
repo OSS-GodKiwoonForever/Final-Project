@@ -12,9 +12,6 @@ from urllib.request import Request, urlopen
 from urllib.parse import urlencode, quote_plus,unquote
 import xml.etree.ElementTree as ET
 
-def dust(data):
-    return int(data)
-
 API_key = unquote('R1V4MPrTQswXXkm8ChQgr%2BGl%2F%2F1SaMuMBpFpDZpflAftaVSnjVK%2F8ye6OZtNsdsyFbvfEsWfPdJAWX2soyzLeg%3D%3D')
 url = 'http://openapi.airkorea.or.kr/openapi/services/rest/ArpltnInforInqireSvc/getCtprvnMesureLIst'
 queryParams = '?' + urlencode({ quote_plus('ServiceKey') : API_key, quote_plus('numOfRows') : '10', quote_plus('pageNo') : '1', quote_plus('itemCode') : 'PM10', quote_plus('dataGubun') : 'HOUR', quote_plus('searchCondition') : 'MONTH' })
@@ -54,7 +51,7 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     # message = TextSendMessage(text=event.message.text)
-    message = TextSendMessage(text=dust(seoul.text))
+    message = TextSendMessage(text='나쁨')
     line_bot_api.reply_message(event.reply_token, message)
 
 import os
