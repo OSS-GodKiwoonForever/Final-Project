@@ -50,7 +50,7 @@ gyeonggi = root.find('body').find('items').find('item').find('gyeonggi')
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     # message = TextSendMessage(text=event.message.text)
-    message = TextSendMessage(text=int(seoul.text))
+    message = TextSendMessage(text=(int)seoul.text)
     line_bot_api.reply_message(event.reply_token, message)
 
 import os
