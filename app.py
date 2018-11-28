@@ -65,7 +65,7 @@ def handle_message(event):
     sejong = root.find('body').find('items').find('item').find('sejong')
 
     # message = TextSendMessage(text=event.message.text)
-    message = TextSendMessage(text=respose_body.text)
+    message = TextSendMessage(text=seoul.text)
     line_bot_api.reply_message(event.reply_token, message)
 
 import os
