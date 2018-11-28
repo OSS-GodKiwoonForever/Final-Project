@@ -8,7 +8,9 @@ from linebot.exceptions import (
 )
 from linebot.models import *
 
-
+from urllib.request import Request, urlopen
+from urllib.parse import urlencode, quote_plus,unquote
+import xml.etree.ElementTree as ET
 
 app = Flask(__name__)
 
@@ -32,13 +34,10 @@ def callback():
         abort(400)
     return 'OK'
 
-from urllib.request import Request, urlopen
-from urllib.parse import urlencode, quote_plus,unquote
-import xml.etree.ElementTree as ET
-
 API_key = unquote('공공데이터 포털에서 받은 API_KEY')
 url = 'http://openapi.airkorea.or.kr/openapi/services/rest/ArpltnInforInqireSvc/getCtprvnMesureLIst'
 queryParams = '?' + urlencode({ quote_plus('ServiceKey') : API_key, quote_plus('numOfRows') : '10', quote_plus('pageNo') : '1', quote_plus('itemCode') : 'PM10', quote_plus('dataGubun') : 'HOUR', quote_plus('searchCondition') : 'MONTH' })
+
 
 request = Request(url + queryParams)
 request.get_method = lambda: 'GET'
@@ -47,11 +46,12 @@ root = ET.fromstring(response_body)
 
 seoul = root.find('body').find('items').find('item').find('seoul')
 gyeonggi = root.find('body').find('items').find('item').find('gyeonggi')
+
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     # message = TextSendMessage(text=event.message.text)
-    message = TextSendMessage(text= dust(seoul.text))
+    message = TextSendMessage(text=seoul.text)
     line_bot_api.reply_message(event.reply_token, message)
 
 import os
