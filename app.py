@@ -47,27 +47,11 @@ def handle_message(event):
     response_body = urlopen(request).read().decode('utf-8')
     root = ET.fromstring(response_body)
 
-    seoul = root.find('body').find('items').find('item').find('seoul')
-    gyeonggi = root.find('body').find('items').find('item').find('gyeonggi')
-    busan = root.find('body').find('items').find('item').find('busan')
-    daegu = root.find('body').find('items').find('item').find('daegu')
-    incheon = root.find('body').find('items').find('item').find('incheon')
-    gwangju = root.find('body').find('items').find('item').find('gwangju')
-    daejeon = root.find('body').find('items').find('item').find('daejeon')
-    ulsan = root.find('body').find('items').find('item').find('ulsan')
-    gangwon = root.find('body').find('items').find('item').find('gangwon')
-    chungbuk = root.find('body').find('items').find('item').find('chungbuk')
-    chungnam = root.find('body').find('items').find('item').find('chungnam')
-    jeonbuk = root.find('body').find('items').find('item').find('jeonbuk')
-    jeonnam = root.find('body').find('items').find('item').find('jeonnam')
-    gyeongbuk = root.find('body').find('items').find('item').find('gyeongbuk')
-    gyeongnam = root.find('body').find('items').find('item').find('gyeongnam')
-    jeju = root.find('body').find('items').find('item').find('jeju')
-    sejong = root.find('body').find('items').find('item').find('sejong')
-
+    def city_parsing(city):
+        city = root.find('body').find('items').find('item').find('city')
 
     # message = TextSendMessage(text=event.message.text)
-    message = TextSendMessage(text=message.text)
+    message = TextSendMessage(text=city_parsing(seoul))
     line_bot_api.reply_message(event.reply_token, message)
 
 import os
