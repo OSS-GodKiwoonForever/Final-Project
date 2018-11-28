@@ -15,9 +15,9 @@ import xml.etree.ElementTree as ET
 app = Flask(__name__)
 
 # Channel Access Token
-line_bot_api = LineBotApi('Access_Token')
+line_bot_api = LineBotApi('Channel Access Token')
 # Channel Secret
-handler = WebhookHandler('Channel_Secret')
+handler = WebhookHandler('Channel Secret')
 
 # 監聽所有來自 /callback 的 Post Request
 @app.route("/callback", methods=['POST'])
@@ -37,7 +37,7 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
 
-    API_key = unquote('R1V4MPrTQswXXkm8ChQgr%2BGl%2F%2F1SaMuMBpFpDZpflAftaVSnjVK%2F8ye6OZtNsdsyFbvfEsWfPdJAWX2soyzLeg%3D%3D')
+    API_key = unquote('API_key')
     url = 'http://openapi.airkorea.or.kr/openapi/services/rest/ArpltnInforInqireSvc/getCtprvnMesureLIst'
     queryParams = '?' + urlencode({ quote_plus('ServiceKey') : API_key, quote_plus('numOfRows') : '10', quote_plus('pageNo') : '1', quote_plus('itemCode') : 'PM10', quote_plus('dataGubun') : 'HOUR', quote_plus('searchCondition') : 'MONTH' })
 
@@ -63,8 +63,8 @@ def handle_message(event):
     gyeongnam = root.find('body').find('items').find('item').find('gyeongnam')
     jeju = root.find('body').find('items').find('item').find('jeju')
     sejong = root.find('body').find('items').find('item').find('sejong')
-    dicts = {"seoul":seoul,"gyeonggi":gyeonggi,"busan":busan,"daegu":daegu,"incheon":incheon,"gwangju":gwangju,"daejeon":daejeon,"ulsan":ulsan,"gangwon":gangwon,   
-    "chungbuk":chungbuk,"chungnam":chungnam,"jeonbuk":jeonbuk,"jeonnam":jeonnam,"gyeongbuk":gyeongbuk,"gyeongnam":gyeongnam,"jeju":jeju,"sejong":sejong}
+    dicts = {"서울":seoul,"경기":gyeonggi,"부산":busan,"대구":daegu,"인천":incheon,"광주":gwangju,"대전":daejeon,"울산":ulsan,"강원":gangwon,
+    "충북":chungbuk,"충남":chungnam,"전북":jeonbuk,"전남":jeonnam,"경북":gyeongbuk,"경남":gyeongnam,"제주":jeju,"세종":sejong}
     # message = TextSendMessage(text=event.message.text)
     userinput = event.message.text.lower()
     textmsg = userinput.capitalize()+"의 PM10 수치:"+dicts[userinput].text
