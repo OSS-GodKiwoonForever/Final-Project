@@ -30,18 +30,6 @@ def callback():
         abort(400)
     return 'OK'
 
-# 處理訊息
-@handler.add(MessageEvent, message=TextMessage)
-def handle_message(event):
-    # message = TextSendMessage(text=event.message.text)
-    message = TextSendMessage(text=seoul.text)
-    line_bot_api.reply_message(event.reply_token, message)
-
-import os
-if __name__ == "__main__":
-    port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port)
-
 from urllib.request import Request, urlopen
 from urllib.parse import urlencode, quote_plus,unquote
 import xml.etree.ElementTree as ET
@@ -57,3 +45,15 @@ root = ET.fromstring(response_body)
 
 seoul = root.find('body').find('items').find('item').find('seoul')
 gyeonggi = root.find('body').find('items').find('item').find('gyeonggi')
+
+# 處理訊息
+@handler.add(MessageEvent, message=TextMessage)
+def handle_message(event):
+    # message = TextSendMessage(text=event.message.text)
+    message = TextSendMessage(text=int(seoul.text))
+    line_bot_api.reply_message(event.reply_token, message)
+
+import os
+if __name__ == "__main__":
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)
