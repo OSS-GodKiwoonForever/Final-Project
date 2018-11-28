@@ -8,10 +8,6 @@ from linebot.exceptions import (
 )
 from linebot.models import *
 
-from urllib.request import Request, urlopen
-from urllib.parse import urlencode, quote_plus,unquote
-import xml.etree.ElementTree as ET
-
 app = Flask(__name__)
 
 # Channel Access Token
@@ -33,6 +29,10 @@ def callback():
     except InvalidSignatureError:
         abort(400)
     return 'OK'
+
+from urllib.request import Request, urlopen
+from urllib.parse import urlencode, quote_plus,unquote
+import xml.etree.ElementTree as ET
 
 API_key = unquote('R1V4MPrTQswXXkm8ChQgr%2BGl%2F%2F1SaMuMBpFpDZpflAftaVSnjVK%2F8ye6OZtNsdsyFbvfEsWfPdJAWX2soyzLeg%3D%3D')
 url = 'http://openapi.airkorea.or.kr/openapi/services/rest/ArpltnInforInqireSvc/getCtprvnMesureLIst'
