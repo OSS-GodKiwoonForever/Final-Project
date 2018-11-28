@@ -1,4 +1,4 @@
-from flask import Flask, request, abort
+﻿from flask import Flask, request, abort
 
 from linebot import (
     LineBotApi, WebhookHandler
@@ -15,9 +15,9 @@ import xml.etree.ElementTree as ET
 app = Flask(__name__)
 
 # Channel Access Token
-line_bot_api = LineBotApi('gqg2I/lG+uFd3oNe/TBt7xVDYx8Um3PJufHx1ctTrutLi0PHzIU7UYMQ/w9eR5ZEn7qB0nmN9xJd0EuH+4VMiTOg+x29yZzrfxwqnLFMGNLVr5mPeYjyNTYirsa4028P4DPwB6SJdqADcDfrNJTq6gdB04t89/1O/w1cDnyilFU=')
+line_bot_api = LineBotApi('Access_Token')
 # Channel Secret
-handler = WebhookHandler('a6ff822dfad748a4f0e7582042a24634')
+handler = WebhookHandler('Channel_Secret')
 
 # 監聽所有來自 /callback 的 Post Request
 @app.route("/callback", methods=['POST'])
@@ -63,9 +63,12 @@ def handle_message(event):
     gyeongnam = root.find('body').find('items').find('item').find('gyeongnam')
     jeju = root.find('body').find('items').find('item').find('jeju')
     sejong = root.find('body').find('items').find('item').find('sejong')
-
+    dicts = {"seoul":seoul,"gyeonggi":gyeonggi,"busan":busan,"daegu":daegu,"incheon":incheon,"gwangju":gwangju,"daejeon":daejeon,"ulsan":ulsan,"gangwon":gangwon,   
+    "chungbuk":chungbuk,"chungnam":chungnam,"jeonbuk":jeonbuk,"jeonnam":jeonnam,"gyeongbuk":gyeongbuk,"gyeongnam":gyeongnam,"jeju":jeju,"sejong":sejong}
     # message = TextSendMessage(text=event.message.text)
-    message = TextSendMessage(text=seoul.text)
+    userinput = event.message.text.lower()
+    textmsg = userinput.capitalize()+"의 PM10 수치:"+dicts[userinput].text
+    message = TextSendMessage(text=textmsg)
     line_bot_api.reply_message(event.reply_token, message)
 
 import os
