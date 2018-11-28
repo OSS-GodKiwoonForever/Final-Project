@@ -19,10 +19,6 @@ line_bot_api = LineBotApi('gqg2I/lG+uFd3oNe/TBt7xVDYx8Um3PJufHx1ctTrutLi0PHzIU7U
 # Channel Secret
 handler = WebhookHandler('a6ff822dfad748a4f0e7582042a24634')
 
-API_key = unquote('공공데이터 포털에서 받은 API_KEY')
-url = 'http://openapi.airkorea.or.kr/openapi/services/rest/ArpltnInforInqireSvc/getCtprvnMesureLIst'
-queryParams = '?' + urlencode({ quote_plus('ServiceKey') : API_key, quote_plus('numOfRows') : '10', quote_plus('pageNo') : '1', quote_plus('itemCode') : 'PM10', quote_plus('dataGubun') : 'HOUR', quote_plus('searchCondition') : 'MONTH' })
-
 # 監聽所有來自 /callback 的 Post Request
 @app.route("/callback", methods=['POST'])
 def callback():
@@ -38,11 +34,22 @@ def callback():
         abort(400)
     return 'OK'
 
+API_key = unquote('	R1V4MPrTQswXXkm8ChQgr%2BGl%2F%2F1SaMuMBpFpDZpflAftaVSnjVK%2F8ye6OZtNsdsyFbvfEsWfPdJAWX2soyzLeg%3D%3D')
+url = 'http://openapi.airkorea.or.kr/openapi/services/rest/ArpltnInforInqireSvc/getCtprvnMesureLIst'
+queryParams = '?' + urlencode({ quote_plus('ServiceKey') : API_key, quote_plus('numOfRows') : '10', quote_plus('pageNo') : '1', quote_plus('itemCode') : 'PM10', quote_plus('dataGubun') : 'HOUR', quote_plus('searchCondition') : 'MONTH' })
+
+request = Request(url + queryParams)
+request.get_method = lambda: 'GET'
+response_body = urlopen(request).read().decode('utf-8')
+root = ET.fromstring(response_body)
+
+seoul = root.find('body').find('items').find('item').find('seoul')
+gyeonggi = root.find('body').find('items').find('item').find('gyeonggi')
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     # message = TextSendMessage(text=event.message.text)
-    message = TextSendMessage(text=)
+    message = TextSendMessage(text=seoul)
     line_bot_api.reply_message(event.reply_token, message)
 
 import os
