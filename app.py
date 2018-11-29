@@ -65,9 +65,15 @@ def handle_message(event):
     sejong = root.find('body').find('items').find('item').find('sejong')
     dicts = {"서울":seoul,"경기":gyeonggi,"부산":busan,"대구":daegu,"인천":incheon,"광주":gwangju,"대전":daejeon,"울산":ulsan,"강원":gangwon,
     "충북":chungbuk,"충남":chungnam,"전북":jeonbuk,"전남":jeonnam,"경북":gyeongbuk,"경남":gyeongnam,"제주":jeju,"세종":sejong}
-    # message = TextSendMessage(text=event.message.text)
-    userinput = event.message.text.lower()
-    textmsg = userinput.capitalize()+"의 PM10 수치:"+dicts[userinput].text
+    textmsg = ""
+    #textmsg 변수 생성
+    userinput = event.message.text
+    if (userinput == "전체"):
+        for i in dicts.keys():
+            textmsg += i+"의 PM10 수치:"+dicts[i].text+"\n" #for문을 돌면서 textmsg에 시도별 정보를 추가해줌
+            #이렇게 하는 이유는 line_sdk에서 event.reply_token은 일회성이라 재사용이 불가능해서임.
+    else:
+        textmsg = userinput.capitalize()+"의 PM10 수치:"+dicts[userinput].text    
     message = TextSendMessage(text=textmsg)
     line_bot_api.reply_message(event.reply_token, message)
 
