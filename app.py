@@ -66,10 +66,20 @@ def handle_message(event):
     dicts = {"서울":seoul,"경기":gyeonggi,"부산":busan,"대구":daegu,"인천":incheon,"광주":gwangju,"대전":daejeon,"울산":ulsan,"강원":gangwon,
     "충북":chungbuk,"충남":chungnam,"전북":jeonbuk,"전남":jeonnam,"경북":gyeongbuk,"경남":gyeongnam,"제주":jeju,"세종":sejong}
     # message = TextSendMessage(text=event.message.text)
-    userinput = event.message.text.lower()
-    textmsg = userinput.capitalize()+"의 PM10 수치:"+dicts[userinput].text
-    message = TextSendMessage(text=textmsg)
-    line_bot_api.reply_message(event.reply_token, message)
+    userinput = event.message.text
+    if(userintput == "전체")
+    {
+        for i in dicts:
+            textmsg = userinput.capitalize()+"의 PM10 수치:"+dicts[userinput].text
+            message = TextSendMessage(text=textmsg)
+            line_bot_api.reply_message(event.reply_token, message)
+    }
+    else{
+        textmsg = userinput.capitalize()+"의 PM10 수치:"+dicts[userinput].text
+        message = TextSendMessage(text=textmsg)
+        line_bot_api.reply_message(event.reply_token, message)
+    }
+
 
 import os
 if __name__ == "__main__":
