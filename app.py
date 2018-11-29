@@ -67,11 +67,27 @@ def handle_message(event):
     "충북":chungbuk,"충남":chungnam,"전북":jeonbuk,"전남":jeonnam,"경북":gyeongbuk,"경남":gyeongnam,"제주":jeju,"세종":sejong}
     textmsg = ""
     #textmsg 변수 생성
+    help_msg ="""입력이 잘못되었습니다.
+현재 입력 : {}
+세종대학교 "갓기웅포레버" 미세먼지 봇 입니다.
+지역 이름 혹은 "전체"를 입력하시면 미세먼지 수치를 말해줍니다.
+ex) "울산" , reply "울산의 미세먼지 수치: 94"
+ex) "전체" , reply "서울의 미세먼지 수치: 94 울산의 미세먼지 수치: 33 ..."
+현재 조회할 수 있는 지역은
+다음과 같습니다.
+
+서울, 경기, 부산, 대구, 인천
+광주, 대전, 울산, 강원, 충북
+충남, 전북, 전남, 경북, 경남
+제주, 세종
+"""
     userinput = event.message.text
     if (userinput == "전체"):
         for i in dicts.keys():
             textmsg += i+"의 PM10 수치:"+dicts[i].text+"\n" #for문을 돌면서 textmsg에 시도별 정보를 추가해줌
             #이렇게 하는 이유는 line_sdk에서 event.reply_token은 일회성이라 재사용이 불가능해서임.
+    elif(userinput not in dicts.keys()):
+        textmsg = help_msg.format(userinput)
     else:
         textmsg = userinput.capitalize()+"의 PM10 수치:"+dicts[userinput].text    
     message = TextSendMessage(text=textmsg)
