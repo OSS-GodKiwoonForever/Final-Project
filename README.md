@@ -115,7 +115,7 @@
 
   
 ## 샘플 결과 테스트
-1. [Line Console]들어가기](https://developers.line.me/console/)，방금 생성 한 bot 선택
+1. [Line Console]들어가기](https://developers.line.me/console/)， 방금 생성 한 bot 선택
     ![](https://i.imgur.com/6ocsOBW.png)
 2. Console을 통해 “Channel settings” 페이지에서  QR Code 스캔，LINE에 친구에게 Bot을 추가하십시오.
 3. 온라인 봇 (Bot on Line)에 문자 메시지를 보내고 말하는 법을 배웁니다.
@@ -154,11 +154,11 @@ Heroku에서 Bot의 로그를 보려면 다음 단계를 따르십시오.
 ![](https://i.imgur.com/DNeNbpV.png)
 
 새 예제 코드에 유의하십시오.
-Git에 대해 더 알고 싶다면 Python3、[Flask 套件](http://docs.jinkan.org/docs/flask/)、[Line bot sdk](https://github.com/line/line-bot-sdk-python)
+Git에 대해 더 알고 싶다면 Python3、[Flask kit](http://docs.jinkan.org/docs/flask/)、[Line bot sdk](https://github.com/line/line-bot-sdk-python)
 
 
 ## 고급 작동
-[官方文件](https://github.com/line/line-bot-sdk-python#api)
+[공식파일](https://github.com/line/line-bot-sdk-python#api)
 ### 답장 메시지
 메시지가 도착하면 메시지에만 회신 할 수 있습니다.
 ```python
