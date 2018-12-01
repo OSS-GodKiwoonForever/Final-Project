@@ -7,18 +7,22 @@
 
 ## 기능
 &nbsp;
+
 ## 실행화면 
 
 &nbsp;
 > 제대로 된 지역 입력
+
 ![](https://user-images.githubusercontent.com/38426656/49324262-bdd6a000-f56d-11e8-9fdc-e6babb06af08.PNG)
 
 
 > 잘못된 지역 입력 
+
 ![](https://user-images.githubusercontent.com/38426656/49324263-c16a2700-f56d-11e8-9e77-983fb61bc4e8.PNG)
 
 
 > 전체 지역 입력
+
 ![](https://user-images.githubusercontent.com/38426656/49324264-c7600800-f56d-11e8-8432-28cc080825ca.PNG)
 
 ## 사용된 기술
