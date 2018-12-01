@@ -1,10 +1,7 @@
 # 미세먼지 봇 
+> 지역명을 말하면 그 곳의 현재 미세먼지와 초미세먼지 수치를 알려주는 Line 채팅 봇
 &nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
+
 
 ## 라인의 미세먼지 봇 QR코드
 ![](https://user-images.githubusercontent.com/38426656/49324322-92a08080-f56e-11e8-872d-3d7449800dcb.PNG)
