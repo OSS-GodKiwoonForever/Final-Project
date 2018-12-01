@@ -1,7 +1,10 @@
-# 라인에서 미세먼지 봇 만들기 by GodkiwoongForever
-
-
-
+# 미세먼지 봇 
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
 
 ## 라인의 미세먼지 봇 QR코드
 ![](https://user-images.githubusercontent.com/38426656/49324322-92a08080-f56e-11e8-872d-3d7449800dcb.PNG)
