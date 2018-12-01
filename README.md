@@ -41,9 +41,9 @@
 ## 데이터 출처
 &nbsp;
 - [라인 봇](https://github.com/yaoandy107/line-bot-tutorial)
-   라인 봇을 만드는 github 오픈 소스
+   : 라인 봇을 만드는 github 오픈 소스
 - [한국환경공단](https://www.airkorea.or.kr/web/bbs/faq/239496?sch_key=0&sch_value=)
-   미세먼지에 대한 API를 받아오는 곳
+   : 미세먼지에 대한 API를 받아오는 곳
 
 
 
