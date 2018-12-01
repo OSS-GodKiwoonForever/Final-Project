@@ -1,6 +1,23 @@
 # 라인에서 미세먼지 봇 만들기
 ##       by GodkiwoongForever
 
+## 라인의 미세먼지 봇 QR코드
+![](https://user-images.githubusercontent.com/38426656/49324322-92a08080-f56e-11e8-872d-3d7449800dcb.PNG)
+
+## 미세먼지 봇 기능 예시
+
+제대로 된 지역 입력 시
+
+![](https://user-images.githubusercontent.com/38426656/49324262-bdd6a000-f56d-11e8-9fdc-e6babb06af08.PNG)
+
+잘못된 지역 입력 시
+
+![](https://user-images.githubusercontent.com/38426656/49324263-c16a2700-f56d-11e8-9e77-983fb61bc4e8.PNG)
+
+전체지역 입력 시
+![](https://user-images.githubusercontent.com/38426656/49324264-c7600800-f56d-11e8-8432-28cc080825ca.PNG)
+
+
 이 튜토리얼에서는 Python LINE Bot SDK를 사용하여 Heroku에서 간단한 컴백 로봇을 설정하는 방법을 보여줍니다.
 <!--more-->
 샘플 봇을 다른 언어로 설정하려면 아래의 LINE Bot SDK 저장소를 참조하십시오.
