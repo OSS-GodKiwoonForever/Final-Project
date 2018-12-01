@@ -26,7 +26,7 @@
   ![](https://i.imgur.com/Y3njp7I.png)
 2. 즐겨 사용하는 App name을 입력하고 Create app를 클릭.
   ![](https://i.imgur.com/WJ85jXR.png)
-
+![](https://user-images.githubusercontent.com/38426656/49324151-a4ccef80-f56b-11e8-9726-9288baa09730.jpg)
 ## Line Bot 채널 만들기
 1. [Line Consol] 들어가기(https://developers.line.me/console/)
     ![](https://i.imgur.com/vseYQt1.png)
