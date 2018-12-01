@@ -6,15 +6,18 @@
 
 ## 미세먼지 봇 기능 예시
 
-제대로 된 지역 입력 시
+###제대로 된 지역 입력 시
 
 ![](https://user-images.githubusercontent.com/38426656/49324262-bdd6a000-f56d-11e8-9fdc-e6babb06af08.PNG)
 
-잘못된 지역 입력 시
+
+###잘못된 지역 입력 시
 
 ![](https://user-images.githubusercontent.com/38426656/49324263-c16a2700-f56d-11e8-9e77-983fb61bc4e8.PNG)
 
-전체지역 입력 시
+
+###전체 지역 입력 시
+
 ![](https://user-images.githubusercontent.com/38426656/49324264-c7600800-f56d-11e8-8432-28cc080825ca.PNG)
 
 
