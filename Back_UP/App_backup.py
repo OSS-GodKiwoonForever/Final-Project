@@ -7,18 +7,13 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import *
-import infor
-
 
 app = Flask(__name__)
 
-Channel_Access_Token = infor.Access
-Channel_Secret = infor.Secret
-
 # Channel Access Toke
-line_bot_api = LineBotApi(Channel_Access_Token)
+line_bot_api = LineBotApi('IJeXE4zAHUy3W5bCv/BUieiFnzkykNZUbpTTnDqYPNnfIyY3ay7u+ZcSYBpV3tez+Ta5cg3Gpp9Sa61oeTB0NIj2lA4g/pm0HBJ+8NyL3RuZ08WBLc4VYiXHEqnB6mmMtSN/NXLrZBfH3OPKqBzYSAdB04t89/1O/w1cDnyilFU=')
 # Channel Secret
-handler = WebhookHandler(Channel_Secret)
+handler = WebhookHandler('6bcf433f2727875ba56aeedbea0251c7')
 
 # 監聽所有來自 /callback 的 Post Request
 @app.route("/callback", methods=['POST'])
