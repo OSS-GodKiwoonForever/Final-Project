@@ -6,35 +6,16 @@ from linebot import (
 from linebot.exceptions import (
     InvalidSignatureError
 )
-from linebot.models import (
-    MessageEvent, TextMessage, TextSendMessage,
-    SourceUser, SourceGroup, SourceRoom,
-    TemplateSendMessage, ConfirmTemplate, MessageTemplateAction,
-    ButtonsTemplate, ImageCarouselTemplate, ImageCarouselColumn, URITemplateAction,
-    PostbackTemplateAction, DatetimePickerTemplateAction,
-    CarouselTemplate, CarouselColumn, PostbackEvent,
-    StickerMessage, StickerSendMessage, LocationMessage, LocationSendMessage,
-    ImageMessage, VideoMessage, AudioMessage, FileMessage,
-    UnfollowEvent, FollowEvent, JoinEvent, LeaveEvent, BeaconEvent
-)
-
-import requests
-import os
-import json
-import jsonpickle
-import infor
-import test3
+from linebot.models import *
 
 app = Flask(__name__)
 
-Channel_Access_Token = infor.Access
-Channel_Secret = infor.Secret
-
 # Channel Access Toke
-line_bot_api = LineBotApi(Channel_Access_Token)
+line_bot_api = LineBotApi('IJeXE4zAHUy3W5bCv/BUieiFnzkykNZUbpTTnDqYPNnfIyY3ay7u+ZcSYBpV3tez+Ta5cg3Gpp9Sa61oeTB0NIj2lA4g/pm0HBJ+8NyL3RuZ08WBLc4VYiXHEqnB6mmMtSN/NXLrZBfH3OPKqBzYSAdB04t89/1O/w1cDnyilFU=')
 # Channel Secret
-handler = WebhookHandler(Channel_Secret)
+handler = WebhookHandler('6bcf433f2727875ba56aeedbea0251c7')
 
+# 監聽所有來自 /callback 的 Post Request
 @app.route("/callback", methods=['POST'])
 def callback():
     # get X-Line-Signature header value
@@ -49,9 +30,13 @@ def callback():
         abort(400)
     return 'OK'
 
+# 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
-test3.handle_message(event)
+def handle_message(event):
+    message = TextSendMessage(text=event.message.text)
+    line_bot_api.reply_message(event.reply_token, message)
 
+import os
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port)
