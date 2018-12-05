@@ -115,13 +115,13 @@ ex) "전체" , reply "서울의 미세먼지 수치: 94 울산의 미세먼지 �
         textmsg += "미세먼지:{:>3}".format(dicts[0][userinput].text) +", 초미세먼지:{:>3}".format(dicts[1][userinput].text)+ "\n"
         result = air_status(dicts[0][userinput].text)
         textmsg += "현재 미세먼지 농도 등급은 " + result + "입니다."
-		if(result == "보통" or result == "좋음"):
+        if(result == "보통" or result == "좋음"):
 			if(userinput=="전남" or userinput=="전북"or userinput=="광주"): #전라도 방언 조건문
 				textmsg += "\n" + "오늘은 아따 거시기 하기에 양호하다잉."
 			elif(userinput=="부산" or userinput=="대구"or userinput=="울산"or userinput=="경북"or userinput=="경남"): #경상도 방언 조건문
-				textmsg += "\n" + "오늘은~ 외출하기에 양호하데이~."
+				textmsg += "\n" + "오늘은~ 외출하기에 양호하데이~"
 			elif(userinput=="충북" or userinput=="충남"or userinput=="대전"or userinput=="세종"): #충청도 방언 조건문
-				textmsg += "\n" + "오늘은 뭐유 외출하기에 양호하데유~."
+				textmsg += "\n" + "오늘은 뭐유 외출하기에 양호하데유~"
 			elif(userinput=="강원"): #강원도 방언 조건문
 				textmsg += "\n" + "오늘은 외출하기에 양호이래요."
 			elif(userinput=="제주"): #제주 방언 조건문
