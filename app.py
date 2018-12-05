@@ -1,4 +1,4 @@
-from flask import Flask, request, abort
+﻿from flask import Flask, request, abort
 
 from linebot import (
     LineBotApi, WebhookHandler
@@ -15,11 +15,11 @@ import xml.etree.ElementTree as ET
 app = Flask(__name__)
 
 # Channel Access Token
-line_bot_api = LineBotApi('VciH8rW4ebInkh6d9y2pCkuABmoKHohkYHCg1ZOIgQ/xBthn8JBQBoz8zskQJhtc9f4Ubk5uwwvjIzcN/v3Xy2AgWYptDFjP4hTdE2fLicLjbSaEoh5TCOKp2KEDj0MztC8nGuFxH5yMpB6oru5drAdB04t89/1O/w1cDnyilFU=')
+line_bot_api = LineBotApi('lea6HxWjzQpT5OQgbMpKYTAff2l8/T3/O0jFblDIJbENWlAxwlFBlFRTkspHYRqN9f4Ubk5uwwvjIzcN/v3Xy2AgWYptDFjP4hTdE2fLicIv6mB6uAFliBAtnxXDPh3Gnve/kW+qBJSMLXk32mHVvgdB04t89/1O/w1cDnyilFU=')
 # Channel Secret
-handler = WebhookHandler('dae6908c536cce490acf18951ad67d71')
+handler = WebhookHandler('b7e5280d7ef356f880b392ed308eae7e')
 
-# ������������ /callback �� Post Request
+# 監聽所有來自 /callback 的 Post Request
 @app.route("/callback", methods=['POST'])
 def callback():
     # get X-Line-Signature header value
@@ -45,7 +45,7 @@ def air_status(data):
     elif(150<int(data)):
         status = "매우나쁨"
     return status
-@handler.add(MessageEvent, message=TextMessage)
+
 def get_air_quality(pm):
     API_key = unquote('R1V4MPrTQswXXkm8ChQgr%2BGl%2F%2F1SaMuMBpFpDZpflAftaVSnjVK%2F8ye6OZtNsdsyFbvfEsWfPdJAWX2soyzLeg%3D%3D')
     url = 'http://openapi.airkorea.or.kr/openapi/services/rest/ArpltnInforInqireSvc/getCtprvnMesureLIst'
@@ -95,6 +95,7 @@ ex) "울산" , reply "울산의 미세먼지 수치: 94"
 ex) "전체" , reply "서울의 미세먼지 수치: 94 울산의 미세먼지 수치: 33 ..."
 현재 조회할 수 있는 지역은
 다음과 같습니다.
+
 서울, 경기, 부산, 대구, 인천
 광주, 대전, 울산, 강원, 충북
 충남, 전북, 전남, 경북, 경남
@@ -102,13 +103,12 @@ ex) "전체" , reply "서울의 미세먼지 수치: 94 울산의 미세먼지 �
 """
     userinput = event.message.text
     textmsg = "전국 미세먼지 측정 현황\n측정 시간 : " + date1.text + "\n"
-    textmsg+="지역  미세먼지  초미세먼지\n"
     if (userinput == "전체"):
         for i in dicts[0].keys():
-            textmsg += i+"  "+dicts[0][i].text+"            "+dicts[1][i].text+"\n" #for문을 돌면서 textmsg에 시도별 정보를 추가해줌
+            textmsg += i+": 미세먼지 {:>3}".format(dicts[0][i].text)+", 초미세먼지 {:>3}".format(dicts[1][i].text)+"\n" #for문을 돌면서 textmsg에 시도별 정보를 추가해줌
             #이렇게 하는 이유는 line_sdk에서 event.reply_token은 일회성이라 재사용이 불가능해서임.
     elif(userinput not in dicts[0].keys()):
-        textmsg = help_msg.format(userinput)		
+        textmsg = help_msg.format(userinput)
     else:
         textmsg = ""
         textmsg += userinput+ "의 미세먼지 현황\n측정 시간 : " + date1.text + "\n"
