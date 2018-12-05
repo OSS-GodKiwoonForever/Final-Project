@@ -103,6 +103,7 @@ ex) "전체" , reply "서울의 미세먼지 수치: 94 울산의 미세먼지 �
 """
     userinput = event.message.text
     textmsg = "전국 미세먼지 측정 현황\n측정 시간 : " + date1.text + "\n"
+    textmsg+="지역  미세먼지  초미세먼지\n"
     if (userinput == "전체"):
         for i in dicts[0].keys():
             textmsg += i+"  "+dicts[0][i].text+"            "+dicts[1][i].text+"\n" #for문을 돌면서 textmsg에 시도별 정보를 추가해줌            #이렇게 하는 이유는 line_sdk에서 event.reply_token은 일회성이라 재사용이 불가능해서임.
