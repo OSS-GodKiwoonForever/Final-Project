@@ -75,8 +75,8 @@ def get_air_quality(pm):
     jeju = root.find('body').find('items').find('item').find('jeju')
     sejong = root.find('body').find('items').find('item').find('sejong')
 
-    return {"서울":seoul,"경기":gyeonggi,"부산":busan,"대구":daegu,"인천":incheon,"광주":gwangju,"대전":daejeon,"울산":ulsan,"강원":gangwon,
-    "충북":chungbuk,"충남":chungnam,"전북":jeonbuk,"전남":jeonnam,"경북":gyeongbuk,"경남":gyeongnam,"제주":jeju,"세종":sejong}, date
+    return {"서울":seoul,"경기":gyeonggi,"부산":busan,"대구":daegu,"인천":incheon,"광주":gwangju,"대전":daejeon,"세종":sejong,"울산":ulsan,"강원":gangwon,
+    "충북":chungbuk,"충남":chungnam,"전북":jeonbuk,"전남":jeonnam,"경북":gyeongbuk,"경남":gyeongnam,"제주":jeju}, date
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
@@ -97,9 +97,9 @@ ex) "전체" , reply "서울의 미세먼지 수치: 94 울산의 미세먼지 �
 다음과 같습니다.
 
 서울, 경기, 부산, 대구, 인천
-광주, 대전, 울산, 강원, 충북
-충남, 전북, 전남, 경북, 경남
-제주, 세종
+광주, 대전, 세종, 울산, 강원,
+충북, 충남, 전북, 전남, 경북,
+경남, 제주
 """
     userinput = event.message.text
     textmsg = "전국 미세먼지 측정 현황\n측정 시간 : " + date1.text + "\n"
