@@ -106,13 +106,13 @@ ex) "전체" , reply "서울의 미세먼지 수치: 94 울산의 미세먼지 �
     textmsg+="지역  미세먼지  초미세먼지\n"
     if (userinput == "전체"):
         for i in dicts[0].keys():
-            textmsg += i+"  "+dicts[0][i].text+"            "+dicts[1][i].text+"\n" #for문을 돌면서 textmsg에 시도별 정보를 추가해줌            #이렇게 하는 이유는 line_sdk에서 event.reply_token은 일회성이라 재사용이 불가능해서임.
+            textmsg += i+"    "+dicts[0][i].text+"            "+dicts[1][i].text+"\n" #for문을 돌면서 textmsg에 시도별 정보를 추가해줌            #이렇게 하는 이유는 line_sdk에서 event.reply_token은 일회성이라 재사용이 불가능해서임.
     elif(userinput not in dicts[0].keys()):
         textmsg = help_msg.format(userinput)
     else:
         textmsg = ""
         textmsg += userinput+ "의 미세먼지 현황\n측정 시간 : " + date1.text + "\n"
-        textmsg += "미세먼지:{:>3}".+"    "+format(dicts[0][userinput].text) +", 초미세먼지:{:>3}".format(dicts[1][userinput].text)+ "\n"
+        textmsg += "미세먼지:{:>3}".+format(dicts[0][userinput].text) +", 초미세먼지:{:>3}".format(dicts[1][userinput].text)+ "\n"
         result = air_status(dicts[0][userinput].text)
         textmsg += "현재 미세먼지 농도 등급은 " + result + "입니다."
         if(result == "보통" or result == "좋음"):
