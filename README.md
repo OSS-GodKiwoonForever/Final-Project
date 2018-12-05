@@ -18,7 +18,11 @@
 ## 실행화면 
 
 &nbsp;
- - 서울 입력
+- 친구 추가시
+
+ ![](https://user-images.githubusercontent.com/38426656/49519136-a720a800-f8e3-11e8-9f8a-a44bbfba05da.PNG)
+
+- 서울 입력
 
 ![](https://user-images.githubusercontent.com/38426656/49515749-252c8100-f8db-11e8-9eb1-53efb5c5ac45.PNG)
 
