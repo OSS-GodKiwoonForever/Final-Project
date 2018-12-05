@@ -112,7 +112,7 @@ ex) "전체" , reply "서울의 미세먼지 수치: 94 울산의 미세먼지 �
     else:
         textmsg = ""
         textmsg += userinput+ "의 미세먼지 현황\n측정 시간 : " + date1.text + "\n"
-        textmsg += "미세먼지:{:>3}".+format(dicts[0][userinput].text) +", 초미세먼지:{:>3}".format(dicts[1][userinput].text)+ "\n"
+        textmsg += "미세먼지:{:>3}".format(dicts[0][userinput].text) +", 초미세먼지:{:>3}".format(dicts[1][userinput].text)+ "\n"
         result = air_status(dicts[0][userinput].text)
         textmsg += "현재 미세먼지 농도 등급은 " + result + "입니다."
         if(result == "보통" or result == "좋음"):
