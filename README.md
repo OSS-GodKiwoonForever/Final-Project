@@ -18,20 +18,32 @@
 ## 실행화면 
 
 &nbsp;
- - 제대로 된 지역 입력
+ - 서울 입력
 
-![](https://user-images.githubusercontent.com/38426656/49324262-bdd6a000-f56d-11e8-9fdc-e6babb06af08.PNG)
-
-
- - 잘못된 지역 입력 
-
-![](https://user-images.githubusercontent.com/38426656/49324263-c16a2700-f56d-11e8-9e77-983fb61bc4e8.PNG)
-
+![](https://user-images.githubusercontent.com/38426656/49515749-252c8100-f8db-11e8-9eb1-53efb5c5ac45.PNG)
 
  - 전체 지역 입력
+ 
+![](https://user-images.githubusercontent.com/38426656/49515735-1b0a8280-f8db-11e8-8aab-6e8aba83d3ea.PNG )
 
-![](https://user-images.githubusercontent.com/38426656/49324264-c7600800-f56d-11e8-8432-28cc080825ca.PNG)
+ - 잘못된 입력 
+ 
+![](https://user-images.githubusercontent.com/38426656/49515799-48573080-f8db-11e8-8ae1-6327d0a7a127.PNG )
 
+ ### 지방 지역 입력시, 사투리로 행동 요령을 알려줍니다
+ 
+
+ - 경북 입력
+ 
+![](https://user-images.githubusercontent.com/38426656/49515782-3f665f00-f8db-11e8-94bd-67d5b36e527b.PNG )
+
+ - 전북 입력
+
+![](https://user-images.githubusercontent.com/38426656/49515773-38d7e780-f8db-11e8-9942-422e605f7a9c.PNG )
+
+ - 제주 입력
+
+![](https://user-images.githubusercontent.com/38426656/49515760-2f4e7f80-f8db-11e8-9f4e-85aabae9816a.PNG )
 
 ## 사용된 기술
 &nbsp;
